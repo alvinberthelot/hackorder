@@ -1,0 +1,17 @@
+.site-footer {
+  background-color: $dark-color;
+  color: $theme-dark-color;
+}
+
+header.post-header {
+  time {
+    background-color: $flash-color;
+    color: $light-color;
+    padding-top: rem-calc(5);
+    padding-bottom: rem-calc(5);
+    @media #{$large-up} {
+      padding-left: rem-calc(10);
+      padding-right: rem-calc(10);
+    }
+  }
+}

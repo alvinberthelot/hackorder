@@ -23,15 +23,21 @@
   </div>
 
   <div class="row">
-    <div class="large-3 columns">coucou</div>
+    <div class="large-3 columns"></div>
     <section class="large-9 columns" role="content">
       {{! Each post will be output using this markup }}
       {{#foreach posts}}
 
       <article class="{{post_class}}">
         <header class="post-header">
-          <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{tags prefix="on "}}</span>
-          <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+          <div class="row">
+              <time class="large-3 columns" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+          </div>
+{{!--           <span class="post-meta">
+            
+            {{tags prefix="on "}}
+          </span> --}}
+            <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
         </header>
         <section class="post-excerpt">
           <p>{{excerpt}}&hellip;</p>
