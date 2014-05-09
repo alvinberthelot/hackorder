@@ -1,7 +1,10 @@
+# Apple crap
 *.DS_Store
+# Sass cache folder
+.sass-cache
+#
 /css/*
+# Bower components
 /bower_components/*
+#
 /node_modules/*
-
-**/.sass-cache
-**/.sass-cache/*
