@@ -3,52 +3,123 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 
-{{! The big featured header on the homepage, with the site logo and description }}
-<header class="site-head row" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
-  <div class="large-12 columns">
-    <div class="site-head-content inner">
-      {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
-      <h1 class="blog-title">{{@blog.title}}</h1>
-    </div>
-  </div>
-</header>
-
 {{! The main content area on the homepage }}
 <main class="content" role="main">
 
-  <div class="row">
-    <div class="large-12 columns">
+  <section class="row">
+    <div class="medium-12 columns">
       <h2 class="blog-description">{{@blog.description}}</h2>
     </div>
-  </div>
+  </section>
 
+  <!-- Main Page Content and Sidebar -->
   <div class="row">
-    <div class="large-3 columns"></div>
-    <section class="large-9 columns" role="content">
+
+    <!-- Sidebar -->
+    <aside class="large-3 panel columns">
+      {{!-- <img src="img/hackorder-logo.svg"> --}}
+      <h5>Categories</h5>
+      <ul class="side-nav">
+        <li><a href="#">News</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Fun</a></li>
+        <li><a href="#">Weasels</a></li>
+      </ul>
+ 
+      <section>
+        <h5>En savoir plus</h5>
+        <ul>
+          <li><a href="#">Pourquoi ce blog ?</a></li>
+          <li><a href="#">Qui tient ce blog ?</a></li>
+        </ul>
+      </section>
+    </aside>
+    <!-- End Sidebar -->
+
+    <!-- Main Page Content -->
+    <div class="large-9 columns" role="content">
+      {{!-- <div class="panel"> --}}
+
       {{! Each post will be output using this markup }}
       {{#foreach posts}}
 
-      <article class="{{post_class}}">
-        <header class="post-header">
-          <div class="row">
-              <time class="large-3 columns" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+{{!--       <article class="row">
+        <div class="large-6 columns">
+          <div class="panel">
+            <h5>Subheader</h5>
+            <p>Sed sit amet posuere erat. Quisque in ipsum non augue euismod dapibus non et eros.</p>
+            <a href="#" class="small button">Link</a>
           </div>
-{{!--           <span class="post-meta">
-            
-            {{tags prefix="on "}}
-          </span> --}}
-            <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-        </header>
-        <section class="post-excerpt">
+        </div>
+
+        <div class="large-6 columns">
+          <div class="panel">
+            <h5>Subheader</h5>
+            <p>Sed sit amet posuere erat. Quisque in ipsum non augue euismod dapibus non et eros.</p>
+            <a href="#" class="small button">Link</a>
+          </div>
+        </div>
+      </article> --}}
+
+{{!--       <aside class="row {{post_class}}">
+        <div class="large-4 columns post-meta-date">
+          <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+        </div>
+        <div class="large-8 columns post-meta-annex"></div>
+      </aside> --}}
+
+      <article class="row {{post_class}}">
+        <div class="large-12 columns">
+          <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
+        </div>
+        <div class="large-4 columns post-meta-date" data-equalizer>
+          <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+        </div>
+        <div class="large-8 columns post-excerpt">
           <p>{{excerpt}}&hellip;</p>
-        </section>
+          <p class="text-right"><a href="{{url}}" class="next">Lire la suite</a></p>
+        </div>
       </article>
+
+      <br>
+      <br>
+      <br>
+
+{{!--             </div>
+
+          <header class="post-header">
+
+   
+            <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
+          </header>
+   
+          <div class="row post-excerpt">
+            <div class="large-4 columns">
+            </div>
+            <div class="large-8 columns content-excerpt">
+              <p>{{excerpt}}&hellip;</p>
+              <p class="text-right"><a href="{{url}}" class="next">Lire la suite</a></p>
+            </div>
+          </div>
+   
+        </article> --}}
 
       {{/foreach}}
 
-      {{!! After all the posts, we have the previous/next pagination links }}
-      {{pagination}}
-    </section>
+    </div>
+    <!-- End Main Page Content -->
   </div>
+  <!-- End Main Page Content and Sidebar -->
+
+  {{!! After all the posts, we have the previous/next pagination links }}
+  {{pagination}}
 
 </main>
+
+
+
+
+
+
+
