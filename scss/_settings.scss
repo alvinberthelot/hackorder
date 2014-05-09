@@ -48,7 +48,7 @@ $anchor-font-color: $flash-color !default;
 $anchor-font-color-hover: scale-color($flash-color, $lightness: -14%) !default;
 
 // We use these to control header font styles
-$header-font-family: $title-font $body-font-family !default;
+$header-font-family: $body-font !default;
 $header-font-weight: 700 !default;
 $header-font-style: normal !default;
 $header-font-color: $dark-color !default;

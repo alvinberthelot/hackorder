@@ -1,17 +1,211 @@
-.site-footer {
-  background-color: $dark-color;
-  color: $theme-dark-color;
+html{
+  height: 100%;
+}
+body {
+  background-color: $gray-extra-light;
+  min-height: 100%;
 }
 
-header.post-header {
-  time {
-    background-color: $flash-color;
-    color: $light-color;
-    padding-top: rem-calc(5);
-    padding-bottom: rem-calc(5);
-    @media #{$large-up} {
-      padding-left: rem-calc(10);
-      padding-right: rem-calc(10);
+article {
+  background-color: $light-color;
+  border: 1px solid $gray-light;
+  // border-left: 1px solid $gray-light;
+  // border-right: 1px solid $gray-light;
+  // border-bottom: 1px solid $gray-light;
+  // border-top: 4px solid $gray-light;
+  // margin-top: rem-calc(36);
+}
+
+time {
+  line-height: $paragraph-line-height;
+}
+
+article p {
+  // -moz-columns: 2;
+  // -webkit-columns: 2;
+  // columns: 2;
+  text-align: justify;
+}
+
+.page-number {
+  padding-left: rem-calc(12);
+  padding-right: rem-calc(12);
+}
+
+.post-excerpt {
+  @include delimiter($gray-light);
+
+  text-align: justify;
+}
+
+.post-meta-date {
+  @include delimiter($flash-color);
+  color: $dark-color;
+  text-align: right;
+  // background: #272727 url(../img/code.png) no-repeat top left;
+  background-color: yellow;
+}
+
+.site-head,
+.content {
+  // background-color: $light-color;
+  color: $dark-color;
+}
+.content {
+  margin-top: rem-calc(48);
+}
+
+h1.blog-title {
+  font-family: $header-font;
+  &::first-letter {
+    // color: green;
+    color: $flash-color;
+  }
+}
+
+.icon-separate {
+  background: url(img/hackorder-logo.svg) no-repeat;
+  // background-size: contain;
+
+  height: 32px;
+  width: 200px;
+
+  // background-image: linear-gradient(45deg, $flash-color 25%, transparent 25%);
+  // background-size: 20px 30px;
+  // height: 30px;
+  // margin-bottom: 45px;
+}
+
+.theme-separate {
+  background-image: linear-gradient(90deg, $theme-dark-color 25%, transparent 25%);
+  background-size: 20px 30px;
+  height: 30px;
+  margin-bottom: 45px;
+  // background-clip: border-box;
+}
+
+
+
+// .tag-code {
+//   .post-excerpt {
+//     @media #{$large-up} {
+//       background: #272727 url(../img/code.png) no-repeat top left;
+//     }
+//   }
+// }
+
+.post {
+  margin-bottom: rem-calc(48);
+  .post-title {
+    a {
+      color: inherit;
     }
   }
+  // .post-excerpt {
+  //   @media #{$large-up} {
+  //     background-clip: content-box;
+  //   }
+  // }
+  // .content-excerpt {
+  //   @media #{$large-up} {
+  //     background-color: rgba($light-color, 0.8);
+  //     margin: 4px;
+  //     padding-top: rem-calc(36);
+  //   }
+  // }
+  a.next {
+    // color: $dark-color;
+    background-color: $flash-color;
+    color: $light-color;
+    font-family: $body-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    padding: 4px 10px 4px 10px;
+  }
+}
+
+
+
+aside > section.post-meta-author {
+  display: none;
+  @media #{$large-up} {
+    display: block;
+    border-bottom: 4px solid $flash-color;
+  }
+}
+footer.post-meta-author {
+  @include annex-zone;
+  @media #{$large-up} {
+    display: none;
+  }
+}
+nav.pagination {
+  text-align: center;
+  margin-bottom: rem-calc(36);
+  margin-top: rem-calc(36);
+  // @include annex-zone;
+}
+
+footer.site-footer {
+  background-color: $dark-color;
+  border-top: 4px solid $theme-dark-color;
+  color: $theme-dark-color;
+  // padding-bottom: rem-calc(36);
+  padding-top: rem-calc(36);
+  aside {
+    // @media #{$large-up} {
+    //   border-right: 4px solid $theme-dark-color;
+    // }
+    > h1 {
+      color: $theme-light-color;
+      font-size: rem-calc(36);
+      margin-bottom: rem-calc(36);
+    }
+  }
+  .poweredby {
+    // padding-bottom: rem-calc(12);
+    padding-top: rem-calc(36);
+    text-align: center;
+    p {
+      font-size: rem-calc(12);
+    }
+  }
+  .links {
+    ul {
+      margin-left: 0;
+      li {
+        margin-bottom: rem-calc(12);
+        a {
+          color: $theme-light-color;
+          font-size: rem-calc(18);
+          text-decoration: uppercase;
+        }
+      }
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0;
+  li {
+
+  }
+}
+
+.subscribe:before {
+  background: $light-color;
+  // opacity: 0.5;
+  // @include border-radius(4px, 4px);
+  border-radius: 50%;
+  height: $subscribe-size;
+  line-height: $subscribe-size;
+  // margin-left: rem-calc(6);
+  margin-right: rem-calc(6);
+  width: $subscribe-size;
+}
+
+.post-header h1 {
+  font-size: rem-calc(28);
 }

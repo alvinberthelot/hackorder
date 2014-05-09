@@ -1,6 +1,10 @@
 
-@import "foundation/functions";
+// @import "compass/reset";
 
+
+// @import "foundation/functions";
+
+@import "branding";
 @import "variables";
 @import "fonts";
 
@@ -13,13 +17,17 @@
 // @import "foundation/components/block-grid";
 // @import "foundation/components/breadcrumbs";
 // @import "foundation/components/button-groups";
-// @import "foundation/components/buttons";
+
+@import "foundation/components/buttons";
+
 // @import "foundation/components/clearing";
 // @import "foundation/components/dropdown";
 // @import "foundation/components/dropdown-buttons";
 // @import "foundation/components/flex-video";
 // @import "foundation/components/forms";
+
 @import "foundation/components/grid";
+
 // @import "foundation/components/inline-lists";
 // @import "foundation/components/joyride";
 // @import "foundation/components/keystrokes";
@@ -40,8 +48,14 @@
 // @import "foundation/components/thumbs";
 // @import "foundation/components/tooltips";
 // @import "foundation/components/top-bar";
+
 @import "foundation/components/type";
+
 // @import "foundation/components/offcanvas";
 // @import "foundation/components/visibility";
 
+// import de la configuration des fonts iconiques de fontello
+@import "fontello";
+//
+@import "custom-mixins";
 @import "custom";
