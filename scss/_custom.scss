@@ -16,6 +16,10 @@ article {
   // margin-top: rem-calc(36);
 }
 
+pre {
+  white-space: normal;
+}
+
 time {
   line-height: $paragraph-line-height;
 }
