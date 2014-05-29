@@ -19,6 +19,7 @@
 <!--     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" /> -->
 
+  <link rel="stylesheet" href="/components/prism/prism.css" />
   <link rel="stylesheet" href="/css/app.css" />
 
   {{! Ghost outputs important style and meta data with this tag }}
@@ -67,13 +68,14 @@
   {{! Ghost outputs important scripts and data with this tag }}
   {{ghost_foot}}
 
-{{!-- <script src="js/vendor/jquery.js"></script> --}}
-  <script src="js/foundation/foundation.js"></script>
-  <script src="js/foundation/foundation.equalizer.js"></script>
+  <script src="/components/prism/prism.js"></script>
 
-  <script>
-    $(document).foundation();
-  </script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="/bower_components/trianglify/trianglify.min.js"></script>
+  
+  <!--<script src="/js/trianglify_custom.js"></script>-->
+
+  <script src="/js/app.js"></script>
 
 </body>
 </html>
