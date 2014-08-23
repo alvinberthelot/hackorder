@@ -2,18 +2,13 @@ html{
   height: 100%;
 }
 body {
-  background-color: $gray-extra-light;
+  background: url(../img/backgrounds/shattered.png);
   min-height: 100%;
 }
 
 article {
-  background-color: $light-color;
-  border: 1px solid $gray-light;
-  // border-left: 1px solid $gray-light;
-  // border-right: 1px solid $gray-light;
-  // border-bottom: 1px solid $gray-light;
-  // border-top: 4px solid $gray-light;
-  // margin-top: rem-calc(36);
+  background-color: $color-light;
+  border: 1px solid $color-gray-extra-dark;
   margin-bottom: rem-calc(36) !important;
 }
 
@@ -42,24 +37,28 @@ article p {
   padding-top: rem-calc(12);
   text-align: justify;
   @media #{$large-up} {
-    @include delimiter-top($gray-light);
+    @include delimiter-top($color-gray-light);
   }
 }
 
+.delimiter-header-annex {
+  @media #{$large-up} {
+    @include delimiter-bottom($color-gray-extra-dark);
+  }
+}
+
+.delimiter-header-name {
+  @include delimiter-bottom($color-flash);
+}
+
 .post-meta-date {
-  @include delimiter-bottom($flash-color);
-  // background-color: $gray-extra-light;
-  color: $flash-color;
-  // color: $dark-color;
+  @include delimiter-bottom($color-flash);
+  color: $color-flash;
   font-size: rem-calc(24);
   text-align: right;
-  // background: #272727 url(../img/code.png) no-repeat top left;
-  // background-color: yellow;
-
   @media #{$large-up} {
-    // background-color: $light-color;
     @include no-delimiter-bottom();
-    @include delimiter-top($flash-color);
+    @include delimiter-top($color-flash);
   }
 }
 
@@ -67,42 +66,39 @@ article p {
   padding-top: rem-calc(36);
 }
 
-.site-head,
+// .site-name {
+//   background-color: $color-flash;
+//   color: $color-light;
+// }
+
+
+// .site-head,
 .content {
-  // background-color: $light-color;
-  color: $dark-color;
+  color: $color-dark;
 }
 .content {
   margin-top: rem-calc(48);
 }
 
 h1.blog-title {
-  font-family: $header-font;
+  font-family: $font-header;
   &::first-letter {
     // color: green;
-    color: $flash-color;
+    color: $color-flash;
   }
 }
 
 .icon-separate {
   background: url(img/hackorder-logo.svg) no-repeat;
-  // background-size: contain;
-
   height: 32px;
   width: 200px;
-
-  // background-image: linear-gradient(45deg, $flash-color 25%, transparent 25%);
-  // background-size: 20px 30px;
-  // height: 30px;
-  // margin-bottom: 45px;
 }
 
 .theme-separate {
-  background-image: linear-gradient(90deg, $theme-dark-color 25%, transparent 25%);
+  background-image: linear-gradient(90deg, $color-dark 25%, transparent 25%);
   background-size: 20px 30px;
   height: 30px;
   margin-bottom: 45px;
-  // background-clip: border-box;
 }
 
 
@@ -122,23 +118,10 @@ h1.blog-title {
       color: inherit;
     }
   }
-  // .post-excerpt {
-  //   @media #{$large-up} {
-  //     background-clip: content-box;
-  //   }
-  // }
-  // .content-excerpt {
-  //   @media #{$large-up} {
-  //     background-color: rgba($light-color, 0.8);
-  //     margin: 4px;
-  //     padding-top: rem-calc(36);
-  //   }
-  // }
   a.next {
-    // color: $dark-color;
-    background-color: $flash-color;
-    color: $light-color;
-    font-family: $body-font;
+    background-color: $color-flash;
+    color: $color-light;
+    font-family: $font-body;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -152,42 +135,30 @@ aside > section.post-meta-author {
   display: none;
   @media #{$large-up} {
     display: block;
-    border-bottom: 4px solid $flash-color;
+    border-bottom: 4px solid $color-flash;
   }
 }
 footer.post-meta-author {
   @include annex-zone;
-  // @media #{$large-up} {
-  //   display: none;
-  // }
 }
 nav.pagination {
   text-align: center;
   margin-bottom: rem-calc(36);
   margin-top: rem-calc(36);
-  // @include annex-zone;
 }
 
 footer.site-footer {
-  // background-color: $dark-color;
-  // border-top: 4px solid $theme-dark-color;
-  color: $theme-dark-color;
-  // padding-bottom: rem-calc(36);
+  color: $color-dark;
   padding-top: rem-calc(36);
   aside {
-    // @media #{$large-up} {
-    //   border-right: 4px solid $theme-dark-color;
-    // }
     > h1 {
-      // color: $theme-light-color;
-      color: $flash-color;
+      color: $color-flash;
       font-size: rem-calc(36);
       margin-bottom: rem-calc(36);
     }
   }
   .poweredby {
-    color: $dark-color;
-    // padding-bottom: rem-calc(12);
+    color: $color-dark;
     padding-top: rem-calc(36);
     text-align: center;
     p {
@@ -200,8 +171,7 @@ footer.site-footer {
       li {
         margin-bottom: rem-calc(12);
         a {
-          // color: $theme-light-color;
-          color: $flash-color;
+          color: $color-flash;
           font-size: rem-calc(18);
           text-decoration: uppercase;
         }
@@ -219,13 +189,10 @@ ul {
 }
 
 .subscribe:before {
-  background: $light-color;
-  // opacity: 0.5;
-  // @include border-radius(4px, 4px);
+  background: $color-light;
   border-radius: 50%;
   height: $subscribe-size;
   line-height: $subscribe-size;
-  // margin-left: rem-calc(6);
   margin-right: rem-calc(6);
   width: $subscribe-size;
 }

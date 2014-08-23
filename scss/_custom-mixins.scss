@@ -2,8 +2,8 @@
 //
 // Zone annexe
 @mixin annex-zone {
-  background-color: $gray-extra-light;
-  border-top: 4px solid $gray-light;
+  background-color: $color-gray-extra-light;
+  border-top: 4px solid $color-gray-light;
   padding-bottom: rem-calc(36);
   padding-top: rem-calc(12);
 }

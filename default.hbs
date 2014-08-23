@@ -29,15 +29,22 @@
 
   {{! The big featured header on the homepage, with the site logo and description }}
   <header class="site-head row" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
-    <div class="medium-12 columns">
-      <div class="site-head-content inner">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
-        <a href="{{@blog.url}}">
-          <h1 class="blog-title">{{@blog.title}}</h1>
-        </a>
-      </div>
+    <div class="large-3 columns site-name">
+      <a href="{{@blog.url}}">
+        <h1 class="blog-title">{{@blog.title}}</h1>
+      </a>
+    </div>
+    <div class="large-9 columns">
+
     </div>
   </header>
+
+{{!--   <div class="row">
+    <div class="large-3 columns delimiter-header-name">
+    </div>
+    <div class="large-9 columns delimiter-header-annex">
+    </div>
+  </div> --}}
 
   {{! Everything else gets inserted here }}
   {{{body}}}
@@ -69,13 +76,6 @@
   {{ghost_foot}}
 
   <script src="/components/prism/prism.js"></script>
-
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="/bower_components/trianglify/trianglify.min.js"></script>
-  
-  <!--<script src="/js/trianglify_custom.js"></script>-->
-
-  <script src="/js/app.js"></script>
 
 </body>
 </html>

@@ -35,23 +35,23 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-$body-bg: $light-color;
-$body-font-color: $dark-color;
-$body-font-family: $body-font, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-bg: $color-light;
+$body-font-color: $color-dark;
+$body-font-family: $font-body, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $body-font-weight: normal;
 $body-font-style: normal;
 
 
 // We use these to style anchors
 $anchor-text-decoration: none !default;
-$anchor-font-color: $flash-color !default;
-$anchor-font-color-hover: scale-color($flash-color, $lightness: -14%) !default;
+$anchor-font-color: $color-flash !default;
+$anchor-font-color-hover: scale-color($color-flash, $lightness: -14%) !default;
 
 // We use these to control header font styles
-$header-font-family: $body-font !default;
+$header-font-family: $font-body !default;
 $header-font-weight: 700 !default;
 $header-font-style: normal !default;
-$header-font-color: $dark-color !default;
+$header-font-color: $color-dark !default;
 $header-line-height: 1.4 !default;
 $header-top-margin: .2rem !default;
 $header-bottom-margin: .5rem !default;
