@@ -2,11 +2,10 @@
 *.DS_Store
 # Sass cache folder
 .sass-cache
-#
-/css/*
+# 
+/dist/*
 # Bower components
 /bower_components/*
-#
+# NPM
 /node_modules/*
-#
 npm-debug.log

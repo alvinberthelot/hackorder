@@ -1,28 +1,7 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
-
-    // compass: {                  // Task
-    //   dist: {                   // Target
-    //     options: {              // Target options
-    //       sassDir: 'scss',
-    //       cssDir: 'css',
-    //       force: true,
-    //       require: 'zurb-foundation',
-    //       environment: 'production'
-    //     }
-    //   },
-    //   dev: {                    // Another target
-    //     options: {
-    //       sassDir: 'scss',
-    //       cssDir: 'css',
-    //       force: true,
-    //       require: 'zurb-foundation'
-    //     }
-    //   }
-    // },
-
+    dist: 'dist',
 
     sass: {
       options: {
@@ -33,7 +12,7 @@ module.exports = function(grunt) {
           outputStyle: 'expanded'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          'assets/css/app.css': 'scss/app.scss'
         }
       },
       dist: {
@@ -41,7 +20,7 @@ module.exports = function(grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          '<%= dist %>/assets/css/app.css': 'scss/app.scss'
         }        
       }
     },
@@ -56,13 +35,47 @@ module.exports = function(grunt) {
         files: 'scss/**/*.scss',
         tasks: ['sass:dev']
       }
+    },
+
+
+    // copie les fichiers
+    copy: {
+      dist: {
+        files: [
+          {
+            expand: true, src: ['*.hbs'], dest: '<%= dist %>'
+          },
+          {
+            expand: true, cwd: 'assets/', src: ['**'], dest: '<%= dist %>/assets'
+          }
+        ]
+      }
+    },
+
+    // nettoyage des fichiers / répertoires
+    clean: {
+      dist: [
+        '<%= dist %>/**'
+      ]
     }
+
   });
 
-  grunt.loadNpmTasks('grunt-sass');
-  // grunt.loadNpmTasks('grunt-contrib-compass');
+  // plugin pour surveiller les modifications des fichiers à chaud
   grunt.loadNpmTasks('grunt-contrib-watch');
+  // plugin de suppression de fichiers
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  // plugin pour copier les fichiers
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  // plugin de pré-processing SASS
+  grunt.loadNpmTasks('grunt-sass');
+  // plugin pour zipper des fichiers
+  grunt.loadNpmTasks('grunt-zip');
 
-  grunt.registerTask('build', ['sass:dist']);
+  grunt.registerTask('build',[
+    'clean:dist',
+    'sass:dist',
+    'copy:dist'
+  ]);
   grunt.registerTask('default', ['sass:dev','watch']);
 }
