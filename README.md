@@ -1,29 +1,32 @@
-# Foundation libsass template
+# Thème hackorder pour le blog Ghost
 
-This is a template to start your own project that uses Grunt and libsass!
+Réalisation d'un thème personnalisé pour le CMS [Ghost](https://ghost.org/)
 
-## Requirements
+## Environnement requis
 
-You'll need to have the following items installed before continuing.
+  * [Git](http://git-scm.com)
+  * [Node.js](http://nodejs.org)
+  * [Grunt](http://gruntjs.com/)
+  * [Bower](http://bower.io)
+  * [Ghost](https://ghost.org/)
 
-  * [Node.js](http://nodejs.org): Use the installer provided on the NodeJS website.
-  * [Grunt](http://gruntjs.com/): Run `[sudo] npm install -g grunt-cli`
-  * [Bower](http://bower.io): Run `[sudo] npm install -g bower`
-
-## Quickstart
+## Installation
 
 ```bash
-git clone git@github.com:zurb/foundation-libsass-template.git
+git clone https://github.com/alvinberthelot/hackorder
+cd hackorder
 npm install && bower install
 ```
 
-While you're working on your project, run:
+## Distribution
 
-`grunt`
+```bash
+grunt build
+ln -s [REPERTOIRE_THEME]/dist [REPERTOIRE_GHOST]/content/themes/hackorder
+```
+## Démarrage Ghost
 
-And you're set!
-
-## Directory Strucutre
-
-  * `scss/_settings.scss`: Foundation configuration settings go in here
-  * `scss/app.scss`: Application styles go here
+```bash
+cd [REPERTOIRE_GHOST]
+npm start
+```
