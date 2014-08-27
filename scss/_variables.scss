@@ -1,7 +1,7 @@
 
 // colors
 $color-dark: #272f32;
-$color-light: #ffffff;
+$color-light: #fff0ff;
 $color-flash: #e31a1c;
 $color-gray-extra-light: #fafafa;
 $color-gray-light: #dddddd;
@@ -15,3 +15,9 @@ $font-header: "Varela";
 
 //
 $subscribe-size : 2em;
+
+// FIXME :: surcharge CSS de Foundation pour ne pas entraver le fonctionnement de prism.js
+// vraiment normal de devoir en arriver là ?
+$code-background-color: inherit;
+$code-border-color: inherit;
+$code-border-size: 0px !default;
