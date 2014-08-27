@@ -12,7 +12,7 @@ module.exports = function(grunt) {
           outputStyle: 'expanded'
         },
         files: {
-          'assets/css/app.css': 'scss/app.scss'
+          '<%= dist %>/assets/css/app.css': 'scss/app.scss'
         }
       },
       dist: {

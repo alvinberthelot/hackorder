@@ -9,3 +9,5 @@
 # NPM
 /node_modules/*
 npm-debug.log
+# More easy to dev but not needed
+/assets/css
