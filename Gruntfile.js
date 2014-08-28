@@ -34,7 +34,11 @@ module.exports = function(grunt) {
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass:dev']
-      }
+      },
+      hbs: {
+        files: '*.hbs',
+        tasks: ['copy:dist']
+      },
     },
 
 

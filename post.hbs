@@ -8,43 +8,41 @@ the {body} of the default.hbs template, which contains our header/footer. }}
   {{! Everything inside the #post tags pulls data from the post }}
   {{#post}}
 
-  <!-- Main Page Content and Sidebar -->
-  <div class="row">
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
 
-    <!-- Sidebar -->
-    <aside class="large-3 columns">
-    </aside>
-    <!-- End Sidebar -->
+      <!-- Sidebar -->
+      <aside class="large-3 columns">
+      </aside>
+      <!-- End Sidebar -->
 
-    <!-- Main Page Content -->
-    <div class="large-9 columns" role="content">
+      <!-- Main Page Content -->
+      <div class="large-9 columns" role="content">
 
-      <!-- Post -->
-      <article class="row {{post_class}}">
-        <div class="large-12 columns">
-          <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
-        </div>
-        <div class="large-4 columns post-meta-date" data-equalizer>
-          <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
-        </div>
-        <div class="large-8 columns post-meta-annex">
-        </div>
-        <section class="large-12 columns post-content">
-          {{content}}
-        </section>
-        <footer class="large-12 columns post-meta-author">
-          <h4>{{author.name}}</h4>
-          <p>{{author.bio}}</p>
-        </footer>
-      </article>
-      <!-- End Post -->
+        <!-- Post -->
+        <article class="row {{post_class}}">
+          <div class="large-12 columns">
+            <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
+          </div>
+          <div class="large-4 columns post-meta-date" data-equalizer>
+            <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+          </div>
+          <div class="large-8 columns post-meta-annex">
+          </div>
+          <section class="large-12 columns post-content">
+            {{content}}
+          </section>
+          <footer class="large-12 columns post-meta-author">
+            <h4>{{author.name}}</h4>
+            <p>{{author.bio}}</p>
+          </footer>
+        </article>
+        <!-- End Post -->
 
+      </div>
+      <!-- End Main Page Content -->
     </div>
-    <!-- End Main Page Content -->
-  </div>
-  <!-- End Main Page Content and Sidebar -->
-  
-
+    <!-- End Main Page Content and Sidebar -->
 
   {{/post}}
 
