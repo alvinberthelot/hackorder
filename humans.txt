@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Alvin Berthelot -- All -- @alvinberthelot
+
+# THANKS
+
+    Thank YOU ! If you read this file.
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Foundation, Prism.js
