@@ -1,8 +1,10 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    cfg: grunt.file.readJSON('config.json'),
     dist: 'dist',
 
+    // plugin de pré-processing SASS
     sass: {
       options: {
         includePaths: ['bower_components/foundation/scss']
@@ -25,12 +27,11 @@ module.exports = function(grunt) {
       }
     },
 
+    // plugin pour surveiller les modifications des fichiers à chaud
     watch: {
-      grunt: { files: ['Gruntfile.js'] },
-      // compass: {
-      //   files: ['/styles/{,*/}*.{scss,sass}'],
-      //   tasks: ['compass']
-      // },
+      grunt: {
+        files: ['Gruntfile.js']
+      },
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass:dev']
@@ -41,8 +42,7 @@ module.exports = function(grunt) {
       },
     },
 
-
-    // copie les fichiers
+    // plugin pour copier les fichiers
     copy: {
       dist: {
         files: [
@@ -56,7 +56,22 @@ module.exports = function(grunt) {
       }
     },
 
-    // nettoyage des fichiers / répertoires
+    // plugin pour remplacer des chaînes de caractères dans les ficheirs
+    'string-replace': {
+      google_analytics: {
+        files: {
+          'default.hbs' : 'default.hbs'
+        },
+        options: {
+          replacements: [{
+            pattern: 'UA-XXXXX-X',
+            replacement: '<%= cfg.UA %>'
+          }]
+        }
+      }
+    },
+
+    // plugin de suppression de fichiers
     clean: {
       dist: [
         '<%= dist %>/**'
@@ -65,19 +80,18 @@ module.exports = function(grunt) {
 
   });
 
-  // plugin pour surveiller les modifications des fichiers à chaud
+  
   grunt.loadNpmTasks('grunt-contrib-watch');
-  // plugin de suppression de fichiers
   grunt.loadNpmTasks('grunt-contrib-clean');
-  // plugin pour copier les fichiers
   grunt.loadNpmTasks('grunt-contrib-copy');
-  // plugin de pré-processing SASS
   grunt.loadNpmTasks('grunt-sass');
   // plugin pour zipper des fichiers
   grunt.loadNpmTasks('grunt-zip');
+  grunt.loadNpmTasks('grunt-string-replace');
 
   grunt.registerTask('build',[
     'clean:dist',
+    'string-replace:google_analytics',
     'sass:dist',
     'copy:dist'
   ]);
