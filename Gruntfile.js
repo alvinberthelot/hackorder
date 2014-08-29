@@ -50,7 +50,7 @@ module.exports = function(grunt) {
             expand: true, src: ['*.hbs'], dest: '<%= dist %>'
           },
           {
-            expand: true, cwd: 'assets/', src: ['**'], dest: '<%= dist %>/assets'
+            expand: true, cwd: 'assets/', src: ['components/**', 'fonts/**', 'img/**', 'js/**'], dest: '<%= dist %>/assets'
           }
         ]
       }
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build',[
     'clean:dist',
-    'sass:dist',
+    'sass:dev',
     'copy:dist'
   ]);
 
