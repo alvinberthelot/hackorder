@@ -11,3 +11,5 @@
 npm-debug.log
 # More easy to dev but not needed
 /assets/css
+# Specific config
+_config.json

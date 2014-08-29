@@ -60,7 +60,7 @@ module.exports = function(grunt) {
     'string-replace': {
       google_analytics: {
         files: {
-          'default.hbs' : 'default.hbs'
+          'dist/default.hbs' : 'dist/default.hbs'
         },
         options: {
           replacements: [{
@@ -91,9 +91,16 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build',[
     'clean:dist',
-    'string-replace:google_analytics',
     'sass:dist',
     'copy:dist'
   ]);
+
+  grunt.registerTask('production',[
+    'clean:dist',
+    'sass:dist',
+    'copy:dist',
+    'string-replace:google_analytics'
+  ]);
+
   grunt.registerTask('default', ['sass:dev','watch']);
 }
