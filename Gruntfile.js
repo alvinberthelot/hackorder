@@ -14,7 +14,7 @@ module.exports = function(grunt) {
           outputStyle: 'expanded'
         },
         files: {
-          '<%= dist %>/assets/css/app.css': 'scss/app.scss'
+          '<%= dist %>/<%= pkg.name %>/assets/css/app.css': 'scss/app.scss'
         }
       },
       dist: {
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          '<%= dist %>/assets/css/app.css': 'scss/app.scss'
+          '<%= dist %>/<%= pkg.name %>/assets/css/app.css': 'scss/app.scss'
         }        
       }
     },
@@ -47,10 +47,15 @@ module.exports = function(grunt) {
       dist: {
         files: [
           {
-            expand: true, src: ['*.hbs'], dest: '<%= dist %>'
+            expand: true,
+            src: ['*.hbs'],
+            dest: '<%= dist %>/<%= pkg.name %>'
           },
           {
-            expand: true, cwd: 'assets/', src: ['components/**', 'fonts/**', 'img/**', 'js/**'], dest: '<%= dist %>/assets'
+            expand: true,
+            cwd: 'assets/',
+            src: ['components/**', 'fonts/**', 'img/**', 'js/**'],
+            dest: '<%= dist %>/<%= pkg.name %>/assets'
           }
         ]
       }
@@ -60,7 +65,7 @@ module.exports = function(grunt) {
     'string-replace': {
       google_analytics: {
         files: {
-          'dist/default.hbs' : 'dist/default.hbs'
+          '<%= dist %>/<%= pkg.name %>/default.hbs' : '<%= dist %>/<%= pkg.name %>/default.hbs'
         },
         options: {
           replacements: [{
@@ -76,22 +81,29 @@ module.exports = function(grunt) {
       dist: [
         '<%= dist %>/**'
       ]
+    },
+
+    // plugin pour zipper des fichiers
+    zip: {
+      dist: {
+        cwd: '<%= dist %>/<%= pkg.name %>',
+        src: ['<%= dist %>/<%= pkg.name %>/**'],
+        dest: '<%= dist %>/<%= pkg.name %>_<%= pkg.version %>.zip'
+      }
     }
 
   });
-
   
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-sass');
-  // plugin pour zipper des fichiers
   grunt.loadNpmTasks('grunt-zip');
   grunt.loadNpmTasks('grunt-string-replace');
 
   grunt.registerTask('build',[
     'clean:dist',
-    'sass:dev',
+    'sass:dist',
     'copy:dist'
   ]);
 
@@ -99,7 +111,8 @@ module.exports = function(grunt) {
     'clean:dist',
     'sass:dist',
     'copy:dist',
-    'string-replace:google_analytics'
+    'string-replace:google_analytics',
+    'zip:dist'
   ]);
 
   grunt.registerTask('default', ['sass:dev','watch']);
