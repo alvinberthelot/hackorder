@@ -22,7 +22,7 @@ npm install && bower install
 
 ```bash
 grunt build
-ln -s [REPERTOIRE_THEME]/dist [REPERTOIRE_GHOST]/content/themes/hackorder
+ln -s [REPERTOIRE_THEME]/dist/hackorder [REPERTOIRE_GHOST]/content/themes/hackorder
 ```
 ## Démarrage Ghost
 
