@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         tasks: ['sass:dev']
       },
       hbs: {
-        files: '*.hbs',
+        files: '**/*.hbs',
         tasks: ['copy:dist']
       },
     },
@@ -48,9 +48,15 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['*.hbs'],
+            src: ['*.hbs', 'partials/**'],
             dest: '<%= dist %>/<%= pkg.name %>'
           },
+          {
+            expand: true,
+            cwd: 'meta/',
+            src: ['*.txt'],
+            dest: '<%= dist %>/<%= pkg.name %>'
+          },          
           {
             expand: true,
             cwd: 'assets/',
