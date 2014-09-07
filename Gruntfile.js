@@ -79,6 +79,17 @@ module.exports = function(grunt) {
             replacement: '<%= cfg.UA %>'
           }]
         }
+      },
+      disqus: {
+        files: {
+          '<%= dist %>/<%= pkg.name %>/partials/disqus.hbs' : '<%= dist %>/<%= pkg.name %>/partials/disqus.hbs'
+        },
+        options: {
+          replacements: [{
+            pattern: 'disqus-XXX',
+            replacement: '<%= cfg.disqus %>'
+          }]
+        }
       }
     },
 
@@ -118,6 +129,7 @@ module.exports = function(grunt) {
     'sass:dist',
     'copy:dist',
     'string-replace:google_analytics',
+    'string-replace:disqus',
     'zip:dist'
   ]);
 
