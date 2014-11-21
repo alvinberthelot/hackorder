@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['*.hbs', 'partials/**'],
+            src: ['*.hbs', 'partials/**', 'package.json'],
             dest: '<%= dist %>/<%= pkg.name %>'
           },
           {
