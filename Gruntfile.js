@@ -1,8 +1,10 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    cfg: grunt.file.readJSON('config.json'),
+    cfg: grunt.file.readJSON('credentials/hackorder/_config.json'),
+    // cfg: grunt.file.readJSON('config.json'),
     dist: 'dist',
+    production: '../ghost/content/themes',
 
     // plugin de pré-processing SASS
     sass: {
@@ -62,6 +64,17 @@ module.exports = function(grunt) {
             cwd: 'assets/',
             src: ['components/**', 'fonts/**', 'img/**', 'js/**'],
             dest: '<%= dist %>/<%= pkg.name %>/assets'
+          }
+        ]
+      }
+      ,
+      production: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: '<%= production %>'
           }
         ]
       }
@@ -130,7 +143,8 @@ module.exports = function(grunt) {
     'copy:dist',
     'string-replace:google_analytics',
     'string-replace:disqus',
-    'zip:dist'
+    'copy:production'
+    // 'zip:dist'
   ]);
 
   grunt.registerTask('default', ['sass:dev','watch']);
